@@ -8,7 +8,7 @@ const schema = require("./validations");
 
 exports.identify = async (req, res) => {
   try {
-    await schema.detailsSchema.validateAsync(req.query);
+    await schema.detailsSchema.validateAsync(req.body);
   } catch (err) {
     throw new AppError(err.message, 400);
   }
