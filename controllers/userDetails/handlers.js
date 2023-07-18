@@ -7,14 +7,14 @@ const AppError = require("../../utils/appError");
 const schema = require("./validations");
 
 exports.identify = async (req, res) => {
-  try {
-    await schema.detailsSchema.validateAsync(req.body);
-  } catch (err) {
-    throw new AppError(err.message, 400);
-  }
+//   try {
+//     await schema.detailsSchema.validateAsync(req.body);
+//   } catch (err) {
+//     throw new AppError(err.message, 400);
+//   }
   // remove empty and unwanted values
   const data = _.omitBy(
-    req.query,
+    req.body,
     (v) => _.isUndefined(v) || _.isNull(v) || v === ""
   );
   let details = await ModOps.getUserDetails(data);

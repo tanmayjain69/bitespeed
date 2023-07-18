@@ -1,6 +1,6 @@
 const sql = require("../utils/db");
 
-async function get(query) {
+async function execute(query) {
   return new Promise((resolve, reject) => {
     sql.query(query, (err, res) => {
       if (err) {
@@ -12,4 +12,4 @@ async function get(query) {
     });
   });
 }
-module.exports = { get };
+module.exports = { execute };
